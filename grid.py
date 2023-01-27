@@ -31,5 +31,32 @@ def generate_grid(n):
     for i in range(n):
         result.append(random.randint(1, 100))
     return result
+#
+#
+# def largest(g):
+#     greatest = g[0]
+#     for n in g:
+#         if n > greatest:
+#             greatest = n
+#     return greatest
+#
+# grid = generate_grid(10)
+# print(grid)
+# print(largest(grid))
 
-print(generate_grid(10))
+def generate_grid_2d(m, n):
+    result = []
+    for i in range(m):
+        result.append(generate_grid(n))
+    return result
+
+grid = generate_grid_2d(4, 5)
+print(grid)
+
+def largest_2d(g):
+    greatest = g[0][0]
+    for i in g:
+        greatest = max(greatest, max(i))
+    return greatest
+
+print(largest_2d(grid))
