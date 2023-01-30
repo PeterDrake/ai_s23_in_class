@@ -1,0 +1,2 @@
+def nqueens(n):
+    pass
