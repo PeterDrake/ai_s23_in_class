@@ -18,3 +18,28 @@ class Test(TestCase):
         board = 'XXXO.O.O.'
         result = winner(board)
         self.assertEqual(1, result)
+
+    def test_finds_value_of_end_of_game(self):
+        board = 'XO.OX...X'
+        result = value(board, 'O')
+        self.assertEqual(1, result)
+
+    def test_looks_ahead_one_move(self):
+        board = 'XX.OO..X.'
+        result = value(board, 'O')
+        self.assertEqual(-1, result)
+
+    def test_looks_ahead_multiple_moves(self):
+        board = '.XX.O.OX.'
+        result = value(board, 'O')
+        self.assertEqual(-1, result)
+
+    def test_does_not_find_legal_moves_when_game_is_over(self):
+        board = 'XXXO.O.O.'
+        result = legal_moves(board, 'X')
+        self.assertEqual((), result)
+
+    def test_finds_best_move(self):
+        board = 'XOX.OO.X.'
+        result = best_move(board, 'X')
+        self.assertEqual(3, result)
