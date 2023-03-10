@@ -77,4 +77,5 @@ def logistic(x):
 # for i in inputs:
 #     print(n.predict(i))
 
+
 net = Network([2, 2, 1])
